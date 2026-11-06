@@ -1,0 +1,13 @@
+import { useState } from 'react'
+import { products as defaults } from '../data/data'
+import { readStorage, writeStorage } from '../utils/localStorage'
+import { useReviews } from '../hooks/useReviews'
+import AdminSidebar from '../components/admin/AdminSidebar'
+import AdminHeader from '../components/admin/AdminHeader'
+import DashboardOverview from '../components/admin/DashboardOverview'
+import ProductManagement from '../components/admin/ProductManagement'
+import IngredientManagement from '../components/admin/IngredientManagement'
+import RecipeManagement from '../components/admin/RecipeManagement'
+import NutritionEditor from '../components/admin/NutritionEditor'
+import ReviewManagement from '../components/admin/ReviewManagement'
+export default function Admin(){const [active,setActive]=useState('overview');const [items,setItems]=useState(()=>readStorage('fitwellth-admin-products',defaults));const {reviews}=useReviews();function save(p){const next=items.some(x=>x.id===p.id)?items.map(x=>x.id===p.id?p:x):[p,...items];setItems(next);writeStorage('fitwellth-admin-products',next)}function remove(id){if(!confirm('Delete this product from the demo menu?'))return;const next=items.filter(x=>x.id!==id);setItems(next);writeStorage('fitwellth-admin-products',next)}return <main className="admin-layout"><AdminSidebar active={active} onChange={setActive}/><section className="admin-content"><AdminHeader active={active}/>{active==='overview'&&<DashboardOverview products={items} reviews={reviews}/ >}{active==='products'&&<ProductManagement products={items} onSave={save} onDelete={remove}/ >}{active==='ingredients'&&<IngredientManagement/>}{active==='recipes'&&<RecipeManagement/>}{active==='nutrition'&&<NutritionEditor/>}{active==='reviews'&&<ReviewManagement reviews={reviews}/>}</section></main>}

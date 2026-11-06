@@ -1,0 +1,2 @@
+import { MessageCircle } from 'lucide-react'
+export default function WhatsAppButton() { const number=(import.meta.env.VITE_WHATSAPP_NUMBER||'').replace(/\D/g,''); return <a className="whatsapp-float" href={number ? `https://wa.me/${number}?text=${encodeURIComponent('Hi FitWellth! I would like to know more about your menu.')}` : 'https://www.instagram.com/fitwellth_/'} target="_blank" rel="noreferrer" aria-label="Chat with FitWellth"><MessageCircle size={23}/></a> }

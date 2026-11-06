@@ -1,0 +1,2 @@
+import { Search, SlidersHorizontal } from 'lucide-react'
+export default function ProductFilter({category,setCategory,search,setSearch,categories}){return <div className="product-toolbar"><div className="filter-tabs">{categories.map(c=><button key={c} className={category===c?'filter-tab active':'filter-tab'} onClick={()=>setCategory(c)}>{c}</button>)}</div><label className="search-box"><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Find your favourite..."/></label></div>}

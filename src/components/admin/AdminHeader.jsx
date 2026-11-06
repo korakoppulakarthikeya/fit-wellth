@@ -1,0 +1,1 @@
+export default function AdminHeader({active}){return <div className="admin-header"><div><small>FITWELLTH / MANAGEMENT</small><h1>{active[0].toUpperCase()+active.slice(1)}</h1></div><span className="admin-status"><i/> Demo workspace</span></div>}

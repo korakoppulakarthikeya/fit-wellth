@@ -1,0 +1,7 @@
+import { X, Plus, Minus, ShoppingBag } from 'lucide-react'
+import ProductGallery from './ProductGallery'
+import IngredientsList from './IngredientsList'
+import NutritionFacts from './NutritionFacts'
+import { getProductNutrition } from '../../services/nutritionService'
+import { formatCurrency } from '../../utils/formatCurrency'
+export default function ProductDetails({product,onClose,onAdd}){if(!product)return null;const nutrition=getProductNutrition(product.id);return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><section className="product-modal"><button className="modal-close" onClick={onClose}><X/></button><ProductGallery product={product}/><div className="detail-content"><div className="eyebrow">{product.category} · {product.size}</div><h2>{product.name}</h2><p>{product.description}</p><h4>What's inside</h4><IngredientsList items={product.ingredients}/><div className="nutrition-heading"><h4>Nutrition per serving</h4><small>Estimated values</small></div><NutritionFacts nutrition={nutrition}/><div className="detail-bottom"><strong>{formatCurrency(product.price)}</strong><button className="btn btn-primary" onClick={()=>{onAdd(product);onClose()}}><ShoppingBag size={17}/> Add to cart</button></div><small className="nutrition-disclaimer">Nutrition is an estimate based on the recipe data. Actual values vary with brands and serving sizes.</small></div></section></div>}

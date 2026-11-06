@@ -1,0 +1,2 @@
+import { formatCurrency } from '../../utils/formatCurrency'
+export default function CartSummary({total,onCheckout,disabled}){return <div className="cart-summary"><div><span>Subtotal</span><b>{formatCurrency(total)}</b></div><small>Delivery charges, if any, will be confirmed on WhatsApp.</small><button className="btn btn-primary checkout-btn" disabled={disabled} onClick={onCheckout}>Continue on WhatsApp <span>→</span></button></div>}

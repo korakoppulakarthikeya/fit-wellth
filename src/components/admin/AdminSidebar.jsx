@@ -1,0 +1,3 @@
+import { LayoutDashboard, Package, Leaf, MessageSquare, BookOpen } from 'lucide-react'
+const links=[['Overview','overview',LayoutDashboard],['Products','products',Package],['Ingredients','ingredients',Leaf],['Recipes','recipes',BookOpen],['Nutrition','nutrition',Leaf],['Reviews','reviews',MessageSquare]]
+export default function AdminSidebar({active,onChange}){return <aside className="admin-sidebar"><div className="admin-logo"><img src="/logo.png" alt=""/> <b>FITWELLTH <small>ADMIN STUDIO</small></b></div>{links.map(([label,id,Icon])=><button key={id} className={active===id?'active':''} onClick={()=>onChange(id)}><Icon size={17}/>{label}</button>)}<a href="/" className="back-store">← Back to storefront</a></aside>}

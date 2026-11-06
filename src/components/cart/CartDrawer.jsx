@@ -1,0 +1,7 @@
+import { X, ShoppingBasket } from 'lucide-react'
+import { useCartContext } from '../../context/CartContext'
+import CartItem from './CartItem'
+import CartSummary from './CartSummary'
+import { createWhatsAppOrder } from '../../services/whatsappService'
+import { useState } from 'react'
+export default function CartDrawer({open,onClose}){const cart=useCartContext();const [message,setMessage]=useState('');if(!open)return null;function checkout(){const result=createWhatsAppOrder(cart.items,cart.total);if(result.error){setMessage(result.error);return}window.open(result.url,'_blank','noopener,noreferrer')}return <div className="drawer-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><aside className="cart-drawer"><div className="drawer-head"><div><span className="eyebrow">YOUR GOODNESS</span><h3>Your cart <small>({cart.count})</small></h3></div><button className="icon-btn" onClick={onClose}><X/></button></div>{cart.items.length?<><div className="cart-items">{cart.items.map(item=><CartItem key={item.id} item={item} onQuantity={cart.setQuantity} onRemove={cart.remove}/>)}</div><CartSummary total={cart.total} onCheckout={checkout}/>{message&&<p className="inline-error">{message}</p>}</>:<div className="cart-empty"><ShoppingBasket size={42}/><h3>Your basket is taking a break.</h3><p>Add a wholesome favourite to get started.</p><button className="btn btn-primary" onClick={onClose}>Explore menu</button></div>}</aside></div>}

@@ -1,0 +1,1 @@
+export default function ReviewCard({review}){return <article className="review-card"><div className="stars">{'★'.repeat(review.rating)}<span>{'★'.repeat(5-review.rating)}</span></div><p>“{review.comment}”</p><b>{review.name}</b><small>FitWellth customer</small></article>}

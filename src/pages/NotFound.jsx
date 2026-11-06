@@ -1,0 +1,1 @@
+import { Link } from 'react-router-dom'; export default function NotFound(){return <div className="not-found"><span>404</span><h1>Oops, this page wandered off.</h1><Link className="btn btn-primary" to="/">Back to FitWellth</Link></div>}
