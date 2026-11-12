@@ -3,6 +3,32 @@ export const products = [
   { id:'dressed-oats', slug:'rolled-oats-with-dressing', name:'Rolled Oats with Dressing', category:'Oats', price:59, size:'1 bowl', tag:'Fresh & fruity', description:'A comforting rolled-oats bowl with a light fruit dressing and a gentle touch of sweetness.', image:'https://images.unsplash.com/photo-1571748982800-fa51082c2224?w=1000&q=85', ingredients:['Rolled oats','Milk','Banana','Honey'], recipeId:'dressed', available:true },
   { id:'chocolate-oats', slug:'high-protein-chocolate-oatmeal', name:'High Protein Chocolate Oatmeal', category:'Oats', price:79, size:'1 bowl', tag:'Customer favourite', description:'Rich chocolate-peanut flavour with banana, oats and a satisfying creamy texture.', image:'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=1000&q=85', recipeId:'chocolate', ingredients:['High-protein oats','Milk','Chocolate peanut butter','Banana','Chia seeds'], available:true },
   { id:'ragi-malt', slug:'ragi-malt', name:'Traditional Ragi Malt', category:'Drinks', price:15, size:'1 glass', tag:'Traditional goodness', description:'A simple traditional ragi drink with curd and boiled corn. A refreshing local favourite.', image:'https://images.unsplash.com/photo-1553787499-6f9133860278?w=1000&q=85', ingredients:['Ragi flour','Curd','Boiled sweet corn'], recipeId:'ragi', available:true },
-  { id:'fresh-sprouts', slug:'fresh-sprouts', name:'Fresh Sprouts', category:'Fresh', price:35, size:'1 serving', tag:'Freshly prepared', description:'Fresh mixed mung sprouts served as a light, wholesome snack.', image:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1000&q=85', ingredients:['Mixed mung sprouts'], recipeId:'sprouts', available:true }
+  { id:'fresh-sprouts', slug:'fresh-sprouts', name:'Fresh Sprouts', category:'Fresh', price:35, size:'1 serving', tag:'Freshly prepared', description:'Fresh mixed mung sprouts served as a light, wholesome snack.', image:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1000&q=85', ingredients:['Mixed mung sprouts'], recipeId:'sprouts', available:true },
+  {
+  id: 'millet-java',
+  slug: 'millet-java',
+  name: 'Millet Java',
+  category: 'Drinks',
+  price: 20,
+  size: '1 glass',
+  tag: 'Traditional goodness',
+  description: 'A wholesome traditional millet-based drink.',
+  image: 'https://images.unsplash.com/photo-1553787499-6f9133860278?w=1000&q=85',
+  ingredients: [],
+  available: true
+},
+{
+  id: 'sandwich',
+  slug: 'sandwich',
+  name: 'Sandwich',
+  category: 'Snacks',
+  price: 25,
+  size: '1 serving',
+  tag: 'Fresh & filling',
+  description: 'A freshly prepared sandwich for a satisfying snack.',
+  image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1000&q=85',
+  ingredients: [],
+  available: true
+}
 ]
-export const categories = ['All','Oats','Drinks','Fresh']
+export const categories = ['All', 'Oats', 'Drinks', 'Fresh', 'Snacks']
