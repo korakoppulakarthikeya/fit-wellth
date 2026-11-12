@@ -1,0 +1,12 @@
+-- Ensure all review columns exist
+ALTER TABLE public.reviews
+ADD COLUMN IF NOT EXISTS product TEXT DEFAULT 'Fit Wellth',
+ADD COLUMN IF NOT EXISTS message TEXT,
+ADD COLUMN IF NOT EXISTS comment TEXT,
+ADD COLUMN IF NOT EXISTS product_id TEXT,
+ADD COLUMN IF NOT EXISTS rating INTEGER,
+ADD COLUMN IF NOT EXISTS approved BOOLEAN DEFAULT FALSE,
+ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT NOW();
+
+-- Refresh PostgREST schema cache
+NOTIFY pgrst, 'reload schema';
